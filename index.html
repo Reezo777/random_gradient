@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<title>Random gradient</title>
+	<style>
+	.block {
+	  width: 400px;
+	  height: 200px;
+	  border: 1px solid;
+	  cursor: pointer;
+	  background: gold;
+	}
+	</style>
+</head>
+<body>
+	<h1>Random gradient</h1>
+	<div class="block"></div>
+	<script>
+		(function () {
+			var block = document.querySelector('.block');
+
+			var randomColor = function() {
+			  var letters = "0123456789ABCDEF";
+			  var color = "#";
+			  letters = letters.split('');
+
+			  for (var i = 0; i < 6; i++) {
+			    var randomIndex = Math.floor(Math.random() * letters.length);
+			    color += letters[randomIndex];
+
+			  };
+			  return color;
+			  console.log(color);
+			}
+
+
+			block.addEventListener("mouseenter", (e) => {
+			  e.target.style.background = 'linear-gradient(to right, ' + randomColor() + ' , ' + randomColor() + ')';
+			});
+		})();
+	</script>
+</body>
+</html>
